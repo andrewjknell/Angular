@@ -1,1 +1,21 @@
-<p>show works!</p>
+<div class="showAuthors">
+    <button class="btn btn-success" [routerLink]="['/add']">add</button>
+    <table class="table table-light table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Author</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let author of authors">
+                <td width="60%">{{author.name}}</td>
+                <td width="40%">
+                    <button class="btn-primary" [routerLink]="['/edit', author._id]">edit</button>
+                    <button class="btn-danger" (click)="deleteOne(author._id)">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <router-outlet></router-outlet> 
+</div>

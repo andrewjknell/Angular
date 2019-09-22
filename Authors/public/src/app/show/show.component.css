@@ -1,0 +1,10 @@
+.showAuthors{
+    width: 60%;
+    margin: 3% 0 0 3%;
+}
+.showAuthors a{
+    font-size: 20px;
+}
+td a{
+    margin-right: 10%;
+}

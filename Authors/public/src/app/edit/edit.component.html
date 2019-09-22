@@ -1,1 +1,9 @@
-<p>edit works!</p>
+<div class="showauthors">
+        <button class="btn btn-success" [routerLink]="['/home']">home</button>
+    <h2>Edit Author: </h2>
+<form (submit)="editThisAuthor()">
+    <label for="">Name:</label>
+    <input class="form-control" type="text" name="authorToEdit.name" [(ngModel)]="authorToEdit.name">
+    <button type="submit" class="btn btn-primary mt-3">submit</button>
+</form>
+</div>

@@ -7,14 +7,17 @@ import { AuthorService } from './author.service';
 import { FormsModule } from '@angular/forms';
 import { ShowComponent } from './show/show.component';
 import { AddComponent } from './add/add.component';
-import { EditComponent } from './edit/edit.component'
+import { EditComponent } from './edit/edit.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    PageNotFoundComponent
+    
   ],
   imports: [
     BrowserModule,

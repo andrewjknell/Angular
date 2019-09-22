@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthorService } from './author.service';
 
 
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -9,9 +10,8 @@ import { AuthorService } from './author.service';
 })
 export class AppComponent implements OnInit {
     constructor(private http: AuthorService) { }
-    
     ngOnInit() {
-        
+
     }
 
 }

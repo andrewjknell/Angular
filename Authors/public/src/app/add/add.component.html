@@ -1,1 +1,10 @@
-<p>add works!</p>
+
+<div class="showauthors">
+        <button class="btn btn-success" [routerLink]="['/home']">home</button>
+    <h2>Add New Author: </h2>
+<form (submit)="addAuthor()">
+    <label for="">Name:</label>
+    <input class="form-control" type="text" name="newAuthor.name" [(ngModel)]="newAuthor.name">
+    <button type="submit" class="btn btn-primary mt-3">submit</button>
+</form>
+</div>
