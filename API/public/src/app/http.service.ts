@@ -18,14 +18,14 @@ export class HttpService {
             for (let x of data['abilities']) {
                 console.log("ability: ", x.ability.name)
             }
-            pokeAbility = data.abilities[1].ability.url;
+            pokeAbility = data['abilities'][1].ability.url;
             const pokies = this._http.get(pokeAbility);
             pokies.subscribe(pokes => {
+                console.log(pokes['pokemon'].length + " pokemon have the same ability");
                 for (let y of pokes['pokemon']){
                     console.log('pokemon name: ', y.pokemon.name);   
                 }
             })
-            
         });
     }
 }

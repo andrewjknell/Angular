@@ -1,19 +1,38 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ninja Gold</title>
+
 </head>
+
 <body>
     <div class="header">
         <h1>Ninja Gold</h1>
     </div>
     <div class="submitform">
-        <form action="">
-            Name of Ninja: <input type="text" name="name">
-            <button type="submit">create</button>
+        <form (submit)="createNewPlayer()">
+            Name of Ninja: <input type="text" name="newPlayer.name" [(ngModel)]="newPlayer.name" />
+            <input type="submit" value="make player">
         </form>
     </div>
+    <div class="allPlayers">
+        <button (click)="getAllPlayers()">show players</button>
+        <ul *ngFor="let player of players">{{player.name}}
+            <button (click)="pickPlayer()">pick</button>
+            <button (click)="deletePlayer(player._id)">delete</button>
+            <button (click)="getPlayer(player._id)">edit</button>
+        </ul>
+        <div *ngIf="editOne._id">
+            <form (submit)="editPlayer(editOne._id)">
+                edit: <input type="text" name="editPlayer.name" [(ngModel)]="editPlayer.name" />
+                <input type="submit" value="edit player">
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>

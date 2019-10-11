@@ -1,0 +1,12 @@
+.header{
+    text-align: center;
+}
+ul{
+    
+    display: inline-block;
+}
+body{
+    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));
+    height: 100vh;
+    padding: 2%;
+}

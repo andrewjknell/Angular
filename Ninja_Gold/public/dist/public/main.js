@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h1>Ninja Gold</h1>");
+/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <button (click)=\"getAllPlayers()\">show players</button>\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer()\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit: <input type=\"text\" name=\"editPlayer.name\" [(ngModel)]=\"editPlayer.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
 
 /***/ }),
 
@@ -305,7 +305,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".header{\r\n    text-align: center;\r\n}\r\nul{\r\n    \r\n    display: inline-block;\r\n}\r\nbody{\r\n    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));\r\n    height: 100vh;\r\n    padding: 2%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTs7SUFFSSxxQkFBcUI7QUFDekI7QUFDQTtJQUNJLHFGQUFxRjtJQUNyRixhQUFhO0lBQ2IsV0FBVztBQUNmIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbnVse1xyXG4gICAgXHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuYm9keXtcclxuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChyZ2IoNTgsIDI0OCwgMjU1KSwgcmdiKDEwMywgMjI1LCAyNDYpLCByZ2IoMjUsIDE5MiwgMjQzKSk7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgcGFkZGluZzogMiU7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -328,8 +328,42 @@ __webpack_require__.r(__webpack_exports__);
 let AppComponent = class AppComponent {
     constructor(_httpService) {
         this._httpService = _httpService;
+        this.players = [];
+        this.editOne = [];
     }
     ngOnInit() {
+        this.newPlayer = { name: "" };
+    }
+    createNewPlayer() {
+        let observable = this._httpService.createPlayer(this.newPlayer);
+        observable.subscribe(data => {
+            console.log("new player", data);
+            this.newPlayer = { name: "" };
+            this.getAllPlayers();
+        });
+    }
+    getAllPlayers() {
+        let observable = this._httpService.getPlayers();
+        observable.subscribe(allData => {
+            console.log("all players", allData);
+            this.players = allData;
+        });
+    }
+    deletePlayer(params) {
+        let observable = this._httpService.deletePlayer(params);
+        observable.subscribe(deleted => {
+            console.log("user deleted");
+            this.getAllPlayers();
+        });
+    }
+    getPlayer(param) {
+        let observable = this._httpService.getPlayer(param);
+        observable.subscribe(editData => {
+            this.editOne = editData;
+        });
+    }
+    editPlayer(id, param) {
+        let observable = this._httpService.editPlayer(id, param);
     }
 };
 AppComponent.ctorParameters = () => [
@@ -364,6 +398,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
 
 
 
@@ -381,7 +417,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
         ],
         providers: [_httm_service__WEBPACK_IMPORTED_MODULE_3__["HttmService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -411,6 +448,22 @@ __webpack_require__.r(__webpack_exports__);
 let HttmService = class HttmService {
     constructor(_http) {
         this._http = _http;
+    }
+    getPlayers() {
+        return this._http.get('/players');
+    }
+    getPlayer(id) {
+        return this._http.get('/player/' + id);
+    }
+    createPlayer(player) {
+        console.log("new player");
+        return this._http.post('/player', player);
+    }
+    editPlayer(id, player) {
+        return this._http.put('/player/' + id, player);
+    }
+    deletePlayer(id) {
+        return this._http.delete('/player/' + id);
     }
 };
 HttmService.ctorParameters = () => [
