@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <button (click)=\"getAllPlayers()\">show players</button>\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer()\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit: <input type=\"text\" name=\"editPlayer.name\" [(ngModel)]=\"editPlayer.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
+/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <!-- <button (click)=\"getAllPlayers()\">show players</button> -->\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer(player._id)\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit name: <input type=\"text\" name=\"editOne.name\" [(ngModel)]=\"editOne.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div *ngIf='picked'>\r\n        <h1>{{playing.name}}</h1>\r\n        <h1>Money: {{playing.gold}}</h1>\r\n    </div>\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Invest in Bitcoin</h1>\r\n        <button (click)='bitcoin()'>to the moon!</button>\r\n\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Work Hard</h1>\r\n        <button (click)=\"workHard()\">do work</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Eat Out</h1>\r\n        <button (click)=\"eatOut\">Spoil yourself</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Casino</h1>\r\n        <button (click)=\"casino\">Feelin' lucky?</button>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
 
 /***/ }),
 
@@ -305,7 +305,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".header{\r\n    text-align: center;\r\n}\r\nul{\r\n    \r\n    display: inline-block;\r\n}\r\nbody{\r\n    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));\r\n    height: 100vh;\r\n    padding: 2%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7QUFDdEI7QUFDQTs7SUFFSSxxQkFBcUI7QUFDekI7QUFDQTtJQUNJLHFGQUFxRjtJQUNyRixhQUFhO0lBQ2IsV0FBVztBQUNmIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbnVse1xyXG4gICAgXHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuYm9keXtcclxuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChyZ2IoNTgsIDI0OCwgMjU1KSwgcmdiKDEwMywgMjI1LCAyNDYpLCByZ2IoMjUsIDE5MiwgMjQzKSk7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgcGFkZGluZzogMiU7XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".header{\r\n    text-align: center;\r\n    font-size: 1.6em;\r\n}\r\nul{\r\n    \r\n    display: inline-block;\r\n}\r\nbody{\r\n    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));\r\n    height: 100vh;\r\n    padding: 2%;\r\n}\r\n.gold{\r\n    border: black solid 2px;\r\n    height: 250px;\r\n    width: 21%;\r\n    display: inline-block;\r\n    margin: 3% 1% 0 1%;\r\n    text-align: center;\r\n}\r\n.gold button{\r\n    height: 60px;\r\n    width: 140px;\r\n    font-size: 1.2em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUkscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxxRkFBcUY7SUFDckYsYUFBYTtJQUNiLFdBQVc7QUFDZjtBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGFBQWE7SUFDYixVQUFVO0lBQ1YscUJBQXFCO0lBQ3JCLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiAxLjZlbTtcclxufVxyXG51bHtcclxuICAgIFxyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59XHJcbmJvZHl7XHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQocmdiKDU4LCAyNDgsIDI1NSksIHJnYigxMDMsIDIyNSwgMjQ2KSwgcmdiKDI1LCAxOTIsIDI0MykpO1xyXG4gICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgIHBhZGRpbmc6IDIlO1xyXG59XHJcblxyXG4uZ29sZHtcclxuICAgIGJvcmRlcjogYmxhY2sgc29saWQgMnB4O1xyXG4gICAgaGVpZ2h0OiAyNTBweDtcclxuICAgIHdpZHRoOiAyMSU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBtYXJnaW46IDMlIDElIDAgMSU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmdvbGQgYnV0dG9ue1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgd2lkdGg6IDE0MHB4O1xyXG4gICAgZm9udC1zaXplOiAxLjJlbTtcclxufSJdfQ== */");
 
 /***/ }),
 
@@ -330,15 +330,17 @@ let AppComponent = class AppComponent {
         this._httpService = _httpService;
         this.players = [];
         this.editOne = [];
+        this.playing = [];
     }
     ngOnInit() {
-        this.newPlayer = { name: "" };
+        this.getAllPlayers();
+        this.newPlayer = { name: "", gold: 0 };
     }
     createNewPlayer() {
         let observable = this._httpService.createPlayer(this.newPlayer);
         observable.subscribe(data => {
             console.log("new player", data);
-            this.newPlayer = { name: "" };
+            this.newPlayer = { name: "", gold: 0 };
             this.getAllPlayers();
         });
     }
@@ -362,8 +364,20 @@ let AppComponent = class AppComponent {
             this.editOne = editData;
         });
     }
-    editPlayer(id, param) {
-        let observable = this._httpService.editPlayer(id, param);
+    editPlayer(param) {
+        let observable = this._httpService.editPlayer(param, this.editOne);
+        observable.subscribe(newName => {
+            console.log('made it here', newName);
+        });
+        this.editOne = [];
+        this.getAllPlayers();
+    }
+    pickPlayer(param) {
+        let observable = this._httpService.getPlayer(param);
+        observable.subscribe(playerPicked => {
+            this.picked = true;
+            this.playing = playerPicked;
+        });
     }
 };
 AppComponent.ctorParameters = () => [

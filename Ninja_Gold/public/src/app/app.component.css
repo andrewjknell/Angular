@@ -1,5 +1,6 @@
 .header{
     text-align: center;
+    font-size: 1.6em;
 }
 ul{
     
@@ -9,4 +10,18 @@ body{
     background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));
     height: 100vh;
     padding: 2%;
+}
+
+.gold{
+    border: black solid 2px;
+    height: 250px;
+    width: 21%;
+    display: inline-block;
+    margin: 3% 1% 0 1%;
+    text-align: center;
+}
+.gold button{
+    height: 60px;
+    width: 140px;
+    font-size: 1.2em;
 }

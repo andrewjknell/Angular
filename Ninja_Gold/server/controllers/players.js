@@ -14,7 +14,9 @@ module.exports = {
             .catch(err => res.json(err));
     },
     addplayer: function (req, res) {
-        const player = new Player(req.body);
+        const player = new Player();
+        player.name = req.body.name,
+        player.gold = 0
         player.save()
             .then(playerData => res.json(playerData))
             .catch(err => res.json(err));
@@ -22,8 +24,8 @@ module.exports = {
     editplayer: function (req, res) {
         const { id } = req.params;
         Player.findByIdAndUpdate({ _id: id }, {
-            name: "",
-            gold: 0
+            name: req.body.name,
+            gold: req.body.gold
         },{new:true})
             .then(results => res.json(results))
             .catch(err => res.json(err));

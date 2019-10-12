@@ -14,7 +14,7 @@ export class HttpService {
         const bulb = this._http.get('https://pokeapi.co/api/v2/pokemon/1/');
         bulb.subscribe(data => {
             console.log("my favorite pokemon is ", data['name']);
-
+            let poke = data['name'];
             for (let x of data['abilities']) {
                 console.log("ability: ", x.ability.name)
             }
@@ -26,6 +26,7 @@ export class HttpService {
                     console.log('pokemon name: ', y.pokemon.name);   
                 }
             })
+            return poke;
         });
     }
 }

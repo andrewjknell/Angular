@@ -19,18 +19,42 @@
         </form>
     </div>
     <div class="allPlayers">
-        <button (click)="getAllPlayers()">show players</button>
+        <!-- <button (click)="getAllPlayers()">show players</button> -->
         <ul *ngFor="let player of players">{{player.name}}
-            <button (click)="pickPlayer()">pick</button>
+            <button (click)="pickPlayer(player._id)">pick</button>
             <button (click)="deletePlayer(player._id)">delete</button>
             <button (click)="getPlayer(player._id)">edit</button>
         </ul>
         <div *ngIf="editOne._id">
             <form (submit)="editPlayer(editOne._id)">
-                edit: <input type="text" name="editPlayer.name" [(ngModel)]="editPlayer.name" />
+                edit name: <input type="text" name="editOne.name" [(ngModel)]="editOne.name" />
                 <input type="submit" value="edit player">
             </form>
         </div>
+    </div>
+    <div *ngIf='picked'>
+        <h1>{{playing.name}}</h1>
+        <h1>Money: {{playing.gold}}</h1>
+    </div>
+    <div *ngIf='picked' class="gold">
+        <h1>Invest in Bitcoin</h1>
+        <button (click)='bitcoin()'>to the moon!</button>
+
+    </div>
+
+    <div *ngIf='picked' class="gold">
+        <h1>Work Hard</h1>
+        <button (click)="workHard()">do work</button>
+    </div>
+
+    <div *ngIf='picked' class="gold">
+        <h1>Eat Out</h1>
+        <button (click)="eatOut">Spoil yourself</button>
+    </div>
+
+    <div *ngIf='picked' class="gold">
+        <h1>Casino</h1>
+        <button (click)="casino">Feelin' lucky?</button>
     </div>
 
 </body>

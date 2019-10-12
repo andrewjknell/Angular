@@ -9,13 +9,15 @@ import { HttmService } from './httm.service';
 export class AppComponent implements OnInit {
     players: any = [];
     newPlayer: any;
-
+    editOne:any = [];
+    editted:any;
+    picked:boolean;
+    playing:any = [];
 
     constructor(private _httpService: HttmService) { }
-
-    editOne:any = [];
     ngOnInit() {
-        this.newPlayer = {name:""}
+        this.getAllPlayers();
+        this.newPlayer = {name:"", gold: 0}
 
     }
 
@@ -23,7 +25,7 @@ export class AppComponent implements OnInit {
         let observable = this._httpService.createPlayer(this.newPlayer);
         observable.subscribe(data => {
             console.log("new player", data);
-            this.newPlayer = {name: ""};
+            this.newPlayer = {name: "", gold: 0};
             this.getAllPlayers();
         });
     }
@@ -35,20 +37,34 @@ export class AppComponent implements OnInit {
         })
 
     }
-    deletePlayer(params:String){
+    deletePlayer(params:string){
         let observable = this._httpService.deletePlayer(params);
         observable.subscribe(deleted =>{
             console.log("user deleted");
             this.getAllPlayers();
         })
     }
-    getPlayer(param: String){
+    getPlayer(param: string){
         let observable = this._httpService.getPlayer(param);
         observable.subscribe(editData => {
             this.editOne = editData;
         })
     }
-    editPlayer(id: String,param: String){
-        let observable = this._httpService.editPlayer(id,param)
+    editPlayer(param: string){
+        let observable = this._httpService.editPlayer(param, this.editOne);
+        observable.subscribe(newName => {
+            console.log('made it here', newName)
+        })
+        this.editOne = [];
+        this.getAllPlayers();
+
     }
+    pickPlayer(param:string){
+        let observable = this._httpService.getPlayer(param);
+        observable.subscribe(playerPicked => {
+            this.picked = true;
+            this.playing = playerPicked;
+        })
+    }
+ 
 }
