@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
         })
     }
     eatOut(id: string, player: string, gold: number) {
-        let newGold = gold - (Math.floor(Math.random() * 36) + 5);
+        let newGold = gold - (Math.floor(Math.random() * 26) + 5);
         let sameName = player;
         let getGold = { name: sameName, gold: newGold };
         let observable = this._httpService.editPlayer(id, getGold);

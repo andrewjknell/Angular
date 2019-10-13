@@ -410,7 +410,7 @@ let AppComponent = class AppComponent {
         });
     }
     eatOut(id, player, gold) {
-        let newGold = gold - (Math.floor(Math.random() * 36) + 5);
+        let newGold = gold - (Math.floor(Math.random() * 26) + 5);
         let sameName = player;
         let getGold = { name: sameName, gold: newGold };
         let observable = this._httpService.editPlayer(id, getGold);
