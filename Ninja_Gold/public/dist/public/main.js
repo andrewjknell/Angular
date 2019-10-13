@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <!-- <button (click)=\"getAllPlayers()\">show players</button> -->\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer(player._id)\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit name: <input type=\"text\" name=\"editOne.name\" [(ngModel)]=\"editOne.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div *ngIf='picked'>\r\n        <h1>{{playing.name}}</h1>\r\n        <h1>Money: {{playing.gold}}</h1>\r\n    </div>\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Invest in Bitcoin</h1>\r\n        <button (click)='bitcoin()'>to the moon!</button>\r\n\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Work Hard</h1>\r\n        <button (click)=\"workHard()\">do work</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Eat Out</h1>\r\n        <button (click)=\"eatOut\">Spoil yourself</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Casino</h1>\r\n        <button (click)=\"casino\">Feelin' lucky?</button>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
+/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\r\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <!-- <button (click)=\"getAllPlayers()\">show players</button> -->\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer(player._id)\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit name: <input type=\"text\" name=\"editOne.name\" [(ngModel)]=\"editOne.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div *ngIf='picked'>\r\n        <h1>{{playing.name}}</h1>\r\n        <h1>Money: ${{playing.gold}}.00</h1>\r\n        <button (click)=\"restart(playing._id,playing.name)\">Restart</button>\r\n    </div>\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Invest in Bitcoin</h1>\r\n        <button (click)='bitcoin(playing._id, playing.name,playing.gold)'>to the moon!</button>\r\n\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Work Hard</h1>\r\n        <button (click)=\"workHard(playing._id, playing.name,playing.gold)\">do work</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Eat Out</h1>\r\n        <button (click)=\"eatOut(playing._id, playing.name,playing.gold)\">Spoil yourself</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Casino</h1>\r\n        <button (click)=\"casino(playing._id, playing.name,playing.gold)\">Feelin' lucky?</button>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
 
 /***/ }),
 
@@ -377,6 +377,56 @@ let AppComponent = class AppComponent {
         observable.subscribe(playerPicked => {
             this.picked = true;
             this.playing = playerPicked;
+        });
+    }
+    bitcoin(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 2400) - 1000);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    workHard(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 26) + 5);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    casino(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 200) - 100);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    eatOut(id, player, gold) {
+        let newGold = gold - (Math.floor(Math.random() * 36) + 5);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    restart(id, player) {
+        let newGold = 0;
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
         });
     }
 };
