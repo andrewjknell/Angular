@@ -379,6 +379,56 @@ let AppComponent = class AppComponent {
             this.playing = playerPicked;
         });
     }
+    bitcoin(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 2400) - 1000);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    workHard(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 26) + 5);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    casino(id, player, gold) {
+        let newGold = gold + (Math.floor(Math.random() * 200) - 100);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    eatOut(id, player, gold) {
+        let newGold = gold - (Math.floor(Math.random() * 26) + 5);
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
+    restart(id, player) {
+        let newGold = 0;
+        let sameName = player;
+        let getGold = { name: sameName, gold: newGold };
+        let observable = this._httpService.editPlayer(id, getGold);
+        observable.subscribe(cashmoney => {
+            console.log(cashmoney['_id']);
+            this.pickPlayer(cashmoney['_id']);
+        });
+    }
 };
 AppComponent.ctorParameters = () => [
     { type: _httm_service__WEBPACK_IMPORTED_MODULE_2__["HttmService"] }
