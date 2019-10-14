@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ninja.component.css']
 })
 export class NinjaComponent implements OnInit {
-
+  title ="hello";
   constructor() { }
-
   ngOnInit() {
   }
 

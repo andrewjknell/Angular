@@ -32,7 +32,20 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\r\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <!-- <button (click)=\"getAllPlayers()\">show players</button> -->\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer(player._id)\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit name: <input type=\"text\" name=\"editOne.name\" [(ngModel)]=\"editOne.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div *ngIf='picked'>\r\n        <h1>{{playing.name}}</h1>\r\n        <h1>Money: ${{playing.gold}}.00</h1>\r\n        <button (click)=\"restart(playing._id,playing.name)\">Restart</button>\r\n    </div>\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Invest in Bitcoin</h1>\r\n        <button (click)='bitcoin(playing._id, playing.name,playing.gold)'>to the moon!</button>\r\n\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Work Hard</h1>\r\n        <button (click)=\"workHard(playing._id, playing.name,playing.gold)\">do work</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Eat Out</h1>\r\n        <button (click)=\"eatOut(playing._id, playing.name,playing.gold)\">Spoil yourself</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Casino</h1>\r\n        <button (click)=\"casino(playing._id, playing.name,playing.gold)\">Feelin' lucky?</button>\r\n    </div>\r\n\r\n</body>\r\n\r\n</html>");
+/* harmony default export */ __webpack_exports__["default"] = ("<html lang=\"en\">\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"\r\n        integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n    <title>Ninja Gold</title>\r\n\r\n</head>\r\n\r\n<body>\r\n    <div class=\"header\">\r\n        <h1>Ninja Gold</h1>\r\n    </div>\r\n    <div class=\"submitform\">\r\n        <form (submit)=\"createNewPlayer()\">\r\n            Name of Ninja: <input type=\"text\" name=\"newPlayer.name\" [(ngModel)]=\"newPlayer.name\" />\r\n            <input type=\"submit\" value=\"make player\">\r\n        </form>\r\n    </div>\r\n    <div class=\"allPlayers\">\r\n        <!-- <button (click)=\"getAllPlayers()\">show players</button> -->\r\n        <ul *ngFor=\"let player of players\">{{player.name}}\r\n            <button (click)=\"pickPlayer(player._id)\">pick</button>\r\n            <button (click)=\"deletePlayer(player._id)\">delete</button>\r\n            <button (click)=\"getPlayer(player._id)\">edit</button>\r\n        </ul>\r\n        <div *ngIf=\"editOne._id\">\r\n            <form (submit)=\"editPlayer(editOne._id)\">\r\n                edit name: <input type=\"text\" name=\"editOne.name\" [(ngModel)]=\"editOne.name\" />\r\n                <input type=\"submit\" value=\"edit player\">\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div *ngIf='picked'>\r\n        <h1>{{playing.name}}</h1>\r\n        <h1>Money: ${{playing.gold}}.00</h1>\r\n        <button (click)=\"restart(playing._id,playing.name)\">Restart</button>\r\n    </div>\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Invest in Bitcoin</h1>\r\n        <button (click)='bitcoin(playing._id, playing.name,playing.gold)'>to the moon!</button>\r\n\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Work Hard</h1>\r\n        <button (click)=\"workHard(playing._id, playing.name,playing.gold)\">do work</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Eat Out</h1>\r\n        <button (click)=\"eatOut(playing._id, playing.name,playing.gold)\">Spoil yourself</button>\r\n    </div>\r\n\r\n    <div *ngIf='picked' class=\"gold\">\r\n        <h1>Casino</h1>\r\n        <button (click)=\"casino(playing._id, playing.name,playing.gold)\">Feelin' lucky?</button>\r\n    </div>\r\n    <!-- <div class=\"root\">\r\n        <h1>welcome to {{title.name}}</h1>\r\n        <app-ninja></app-ninja>\r\n    </div> -->\r\n\r\n</body>\r\n\r\n</html>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/ninja/ninja.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/ninja/ninja.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>ninja works!</p>\n");
 
 /***/ }),
 
@@ -305,7 +318,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".header{\r\n    text-align: center;\r\n    font-size: 1.6em;\r\n}\r\nul{\r\n    \r\n    display: inline-block;\r\n}\r\nbody{\r\n    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));\r\n    height: 100vh;\r\n    padding: 2%;\r\n}\r\n.gold{\r\n    border: black solid 2px;\r\n    height: 250px;\r\n    width: 21%;\r\n    display: inline-block;\r\n    margin: 3% 1% 0 1%;\r\n    text-align: center;\r\n}\r\n.gold button{\r\n    height: 60px;\r\n    width: 140px;\r\n    font-size: 1.2em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUkscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxxRkFBcUY7SUFDckYsYUFBYTtJQUNiLFdBQVc7QUFDZjtBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGFBQWE7SUFDYixVQUFVO0lBQ1YscUJBQXFCO0lBQ3JCLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVye1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiAxLjZlbTtcclxufVxyXG51bHtcclxuICAgIFxyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG59XHJcbmJvZHl7XHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQocmdiKDU4LCAyNDgsIDI1NSksIHJnYigxMDMsIDIyNSwgMjQ2KSwgcmdiKDI1LCAxOTIsIDI0MykpO1xyXG4gICAgaGVpZ2h0OiAxMDB2aDtcclxuICAgIHBhZGRpbmc6IDIlO1xyXG59XHJcblxyXG4uZ29sZHtcclxuICAgIGJvcmRlcjogYmxhY2sgc29saWQgMnB4O1xyXG4gICAgaGVpZ2h0OiAyNTBweDtcclxuICAgIHdpZHRoOiAyMSU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBtYXJnaW46IDMlIDElIDAgMSU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmdvbGQgYnV0dG9ue1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgd2lkdGg6IDE0MHB4O1xyXG4gICAgZm9udC1zaXplOiAxLjJlbTtcclxufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".header{\r\n    text-align: center;\r\n    font-size: 1.6em;\r\n}\r\nul{\r\n    \r\n    display: inline-block;\r\n}\r\nbody{\r\n    background: linear-gradient(rgb(58, 248, 255), rgb(103, 225, 246), rgb(25, 192, 243));\r\n    height: 100vh;\r\n    padding: 2%;\r\n}\r\n.gold{\r\n    border: black solid 2px;\r\n    height: 250px;\r\n    width: 21%;\r\n    display: inline-block;\r\n    margin: 3% 1% 0 1%;\r\n    text-align: center;\r\n}\r\n.gold button{\r\n    height: 60px;\r\n    width: 140px;\r\n    font-size: 1.2em;\r\n}\r\n.root{\r\n    border: 1px black solid;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCO0FBQ0E7O0lBRUkscUJBQXFCO0FBQ3pCO0FBQ0E7SUFDSSxxRkFBcUY7SUFDckYsYUFBYTtJQUNiLFdBQVc7QUFDZjtBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLGFBQWE7SUFDYixVQUFVO0lBQ1YscUJBQXFCO0lBQ3JCLGtCQUFrQjtJQUNsQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLFlBQVk7SUFDWixZQUFZO0lBQ1osZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSx1QkFBdUI7QUFDM0IiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oZWFkZXJ7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LXNpemU6IDEuNmVtO1xyXG59XHJcbnVse1xyXG4gICAgXHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbn1cclxuYm9keXtcclxuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChyZ2IoNTgsIDI0OCwgMjU1KSwgcmdiKDEwMywgMjI1LCAyNDYpLCByZ2IoMjUsIDE5MiwgMjQzKSk7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgcGFkZGluZzogMiU7XHJcbn1cclxuXHJcbi5nb2xke1xyXG4gICAgYm9yZGVyOiBibGFjayBzb2xpZCAycHg7XHJcbiAgICBoZWlnaHQ6IDI1MHB4O1xyXG4gICAgd2lkdGg6IDIxJTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIG1hcmdpbjogMyUgMSUgMCAxJTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZ29sZCBidXR0b257XHJcbiAgICBoZWlnaHQ6IDYwcHg7XHJcbiAgICB3aWR0aDogMTQwcHg7XHJcbiAgICBmb250LXNpemU6IDEuMmVtO1xyXG59XHJcbi5yb290e1xyXG4gICAgYm9yZGVyOiAxcHggYmxhY2sgc29saWQ7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -463,6 +476,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _ninja_ninja_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ninja/ninja.component */ "./src/app/ninja/ninja.component.ts");
+
 
 
 
@@ -476,7 +491,8 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+            _ninja_ninja_component__WEBPACK_IMPORTED_MODULE_8__["NinjaComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -538,6 +554,52 @@ HttmService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], HttmService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/ninja/ninja.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/ninja/ninja.component.css ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL25pbmphL25pbmphLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/ninja/ninja.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/ninja/ninja.component.ts ***!
+  \******************************************/
+/*! exports provided: NinjaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NinjaComponent", function() { return NinjaComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let NinjaComponent = class NinjaComponent {
+    constructor() {
+        this.title = "hello";
+    }
+    ngOnInit() {
+    }
+};
+NinjaComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-ninja',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./ninja.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/ninja/ninja.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./ninja.component.css */ "./src/app/ninja/ninja.component.css")).default]
+    })
+], NinjaComponent);
 
 
 

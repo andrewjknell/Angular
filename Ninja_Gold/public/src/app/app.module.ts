@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NinjaComponent } from './ninja/ninja.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NinjaComponent
   ],
   imports: [
     BrowserModule,
