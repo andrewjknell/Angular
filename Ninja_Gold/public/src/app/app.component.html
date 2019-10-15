@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Ninja Gold</title>
 
 </head>
@@ -36,33 +34,28 @@
     </div>
     <div *ngIf='picked'>
         <h1>{{playing.name}}</h1>
-        <h1>Money: ${{playing.gold}}.00</h1>
-        <button (click)="restart(playing._id,playing.name)">Restart</button>
+        <h1>Money: {{playing.gold}}</h1>
     </div>
     <div *ngIf='picked' class="gold">
         <h1>Invest in Bitcoin</h1>
-        <button (click)='bitcoin(playing._id, playing.name,playing.gold)'>to the moon!</button>
+        <button (click)='bitcoin()'>to the moon!</button>
 
     </div>
 
     <div *ngIf='picked' class="gold">
         <h1>Work Hard</h1>
-        <button (click)="workHard(playing._id, playing.name,playing.gold)">do work</button>
+        <button (click)="workHard()">do work</button>
     </div>
 
     <div *ngIf='picked' class="gold">
         <h1>Eat Out</h1>
-        <button (click)="eatOut(playing._id, playing.name,playing.gold)">Spoil yourself</button>
+        <button (click)="eatOut">Spoil yourself</button>
     </div>
 
     <div *ngIf='picked' class="gold">
         <h1>Casino</h1>
-        <button (click)="casino(playing._id, playing.name,playing.gold)">Feelin' lucky?</button>
+        <button (click)="casino">Feelin' lucky?</button>
     </div>
-    <!-- <div class="root">
-        <h1>welcome to {{title.name}}</h1>
-        <app-ninja></app-ninja>
-    </div> -->
 
 </body>
 
