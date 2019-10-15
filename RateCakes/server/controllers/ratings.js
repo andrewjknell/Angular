@@ -14,7 +14,7 @@ module.exports = {
             .catch(err => res.json(err));
     },
     add: function (req, res) {
-        console.log("here")
+  
         const rating = new Rating(req.body);
         rating.save()
             .then(data => res.json(data))

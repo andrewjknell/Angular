@@ -26,7 +26,7 @@
     </div>
     <div class="cakes">
         <div *ngFor="let cake of cakes" class="cakepick">
-            <img src="{{ cake.image }}" />
+            <a (click)="cakeShow(cake._id)"><img src="{{ cake.image }}" /></a>
             <div class="ratings">
                 <form (submit)="makeRating(cake._id)">
                     <select name="newRating.stars" [(ngModel)]="newRating.stars" class="form-control">
@@ -43,7 +43,9 @@
             </div>
         </div>
     </div>
-    <div class="footerr"></div>
+    <div  class="footerr">
+        <app-cakes *ngIf="cakeDisplay" [cakeShow]='cakeDisplay'></app-cakes>
+    </div>
 </body>
 
 </html>

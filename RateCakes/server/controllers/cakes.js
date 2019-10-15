@@ -14,7 +14,7 @@ module.exports = {
             .catch(err => res.json(err));
     },
     add: function (req, res) {
-        console.log("here")
+        // console.log("here")
         const cake = new Cake(req.body);
         cake.save()
             .then(data => res.json(data))
@@ -23,7 +23,7 @@ module.exports = {
     edit: function (req, res) {
         const { id } = req.params;
         Cake.findByIdAndUpdate({ _id: id }, { $push: { ratings: req.body } })
-                    .then(cakeData => console.log("added rating to cake!", cakeData))
+                    .then(cakeData => res.json(data))
                     .catch(err => res.json(err))
         
     },

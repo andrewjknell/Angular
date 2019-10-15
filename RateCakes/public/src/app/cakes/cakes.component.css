@@ -1,0 +1,13 @@
+.cakeshowing img{
+    height: 320px;
+    width: 320px;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    display: inline-block;
+}
+.ratings{
+    margin-left: 3%;
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+}

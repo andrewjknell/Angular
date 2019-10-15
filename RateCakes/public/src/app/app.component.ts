@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
         rating: "",
         stars: ""
     };
+    cakeDisplay:any;
     ngOnInit() {
         this.getAllCakes();
     }
@@ -31,29 +32,39 @@ export class AppComponent implements OnInit {
     addCake() {
         const makeCake = this.http.makeCake(this.newCake);
         makeCake.subscribe(data => {
-            console.log("new cake", data);
+            // console.log("new cake", data);
             this.newCake = { baker: "", image: "" };
             this.getAllCakes();
         });
     }
     makeRating(cakeId) {
         const cakeUpdate = cakeId;
-        console.log("components", this.newRating);
+        // console.log("components", this.newRating);
         const addRating = this.http.makeRating(this.newRating)
         addRating.subscribe(newRate => {
-            console.log("completed", newRate)
+            // console.log("completed", newRate)
             this.updateCake(cakeUpdate, newRate);
         })
+    
     }
 
     updateCake(id, newRate) {
         const cakeRate = this.http.editCake(id, newRate)
         cakeRate.subscribe(data => {
-            console.log("finally did it!!", data)
+            // console.log("finally did it!!", data)
         })
         this.newRating = {
             rating: "",
             stars: ""
         };
+        
+    }
+    cakeShow(id){
+        const showCake = this.http.getCake(id)
+        showCake.subscribe(data => {
+            //  console.log("got the cake to show", data);
+             this.cakeDisplay = data;
+             
+        })
     }
 }

@@ -1,0 +1,12 @@
+
+<div *ngIf="cakeShow" class="cakeshowing">
+    <img src="{{ cakeShow.image }}" />
+    <div class="ratings">
+    <h2>Baker: {{cakeShow.baker}}</h2>
+    <h4>Ratings:</h4>
+    <div *ngFor="let rating of cakeShow.ratings">
+        <p>{{rating.stars}} stars</p>
+        <p>comments: {{rating.rating}}</p>
+    </div>
+</div>
+</div>
