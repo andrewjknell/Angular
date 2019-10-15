@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    width: 1200px;
+    margin: auto;
+}
+.head{
+    border: solid black 2px;
+    padding: 1%;
+}
+.addcake{
+    border: solid black 2px;
+    height: 400px;
+    width: 30%;
+    display: inline-block;
+    padding: 1%;
+}
+.cakes{
+    border: solid black 2px;
+    height: 400px;
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 1%;
+    overflow: scroll;
+}
+.ratings{
+    display: inline-block;
+    width: 300px;
+    vertical-align: middle;
+}
+.cakepick img{
+    height: 260px;
+    width: 260px;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    display: inline-block;
+}
+.cakepick select{
+    width: 300px;
+    vertical-align: top;
+    margin: 0 0 2% 3%;
+}
+.cakepick textarea{
+    width: 300px;
+    margin: 0 0 2% 3%;
+    
+}
+.footerr{
+    border: solid black 2px;
+    height: 400px;
+    padding: 1%;
+}
