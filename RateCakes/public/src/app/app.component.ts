@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
         stars: ""
     };
     cakeDisplay:any;
+    avgg:number;
     ngOnInit() {
         this.getAllCakes();
     }
@@ -60,11 +61,26 @@ export class AppComponent implements OnInit {
         
     }
     cakeShow(id){
+        const avg = id
         const showCake = this.http.getCake(id)
         showCake.subscribe(data => {
             //  console.log("got the cake to show", data);
              this.cakeDisplay = data;
-             
+        
+        })
+        this.cakeAvg(avg)
+    }
+    cakeAvg(avg){ 
+        const getCakeAvg = this.http.getCake(avg)
+        getCakeAvg.subscribe((data:any) => {
+            let sum = 0;
+            for(let i = 0; i < data.ratings.length; i++){
+                sum += data.ratings[i].stars;
+            }
+            let average = sum/data.ratings.length;
+            this.avgg = average
+            console.log(this.avgg)
+           
         })
     }
 }

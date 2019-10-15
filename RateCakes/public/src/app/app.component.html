@@ -43,8 +43,8 @@
             </div>
         </div>
     </div>
-    <div  class="footerr">
-        <app-cakes *ngIf="cakeDisplay" [cakeShow]='cakeDisplay'></app-cakes>
+    <div *ngIf="cakeDisplay" class="footerr">
+        <app-cakes [average]='avgg' [cakeShow]='cakeDisplay'></app-cakes>
     </div>
 </body>
 
