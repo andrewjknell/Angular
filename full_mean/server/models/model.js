@@ -2,20 +2,25 @@ const mongoose = require('mongoose');
 
 const DataSchema = new mongoose.Schema({
     info: {
-        type: String
+        type: String,
+        required: true,
+        minlength: [2, 'must have info']
     }
-})
-const ObjectSchema = new mongoose.Schema({
+}, { timestamps: true })
+
+const ObjSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'must have a name'], 
+        required: [true, 'must have a name'],
         minlength: [2, 'must be longer than 2 characters']
     },
-    about:  {
-        type: String, 
-        required: [true, 'must have something else'], 
+    about: {
+        type: String,
+        required: [true, 'must have something else'],
         minlength: [2, 'must be longer than 2 characters']
     },
-},{timestamps})
+    data: [DataSchema],
+}, { timestamps: true })
 
-const Object = mongoose.model('object')
+const Data = mongoose.model('Data', DataSchema)
+const Obj = mongoose.model('Obj', ObjSchema)
