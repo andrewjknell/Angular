@@ -11,7 +11,7 @@ import { AuthorService } from './author.service';
 export class AppComponent implements OnInit {
     constructor(private http: AuthorService) { }
     ngOnInit() {
-
+        
     }
 
 }
