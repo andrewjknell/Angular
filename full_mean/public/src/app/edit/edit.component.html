@@ -1,0 +1,45 @@
+<h1 class="display-4 ml-4">Update Product</h1>
+<div class="contain ml-4">
+    <div *ngFor="let err of errors">
+        <p>{{ err.message }}</p>
+    </div>
+    <form class="ml-4" (submit)="postObj(objToEdit._id)">
+        <label for="">Name: </label>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+
+            <div *ngIf="name.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+        </div>
+        <input type="text" class="form-control" name="name" [(ngModel)]="objToEdit.name" required minlength="4"
+            #name="ngModel">
+
+        <label for="">Quantity: </label>
+        <div *ngIf="qty.invalid && (qty.dirty || qty.touched)" class="alert alert-danger">
+            <div *ngIf="qty.errors.required">
+                Quantity is required.
+            </div>
+        </div>
+        <input type="number" class="form-control" name="qty" [(ngModel)]="objToEdit.qty" required #qty="ngModel">
+
+        <label for="">Price: </label>
+        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+            <div *ngIf="price.errors.required">
+                Price is required.
+            </div>
+        </div>
+        <input type="number" class="form-control" name="price" [(ngModel)]="objToEdit.price" required #price="ngModel">
+
+        <button class="btn btn-primary"
+            [disabled]="(objToEdit.name.length < 4) || (price.errors?.required) || (qty.errors?.required)"
+            type="submit">edit!</button>
+            <button class="btn btn-primary" type="submit">EDITTTTT</button>
+
+    </form>
+    <button class="btn btn-info ml-4 mt-2" (click)="reset(objToEdit._id)">reset</button>
+
+    <button class="btn btn-danger ml-4 mt-2" [routerLink]="['/products']">cancel</button>
+</div>

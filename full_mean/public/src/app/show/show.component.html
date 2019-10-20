@@ -1,0 +1,11 @@
+
+<h1 class="display-4">Product Details</h1>
+<h2 class="display-6">Name: {{objToShow.name}}</h2>
+<h2 class="display-6">Quantity: {{objToShow.qty}}</h2>
+<h2 class="display-6">Price: ${{objToShow.price}}</h2>
+
+
+<button class="btn btn-success" [routerLink]="['/products']">home</button>
+<button *ngIf="zero == true" class="btn btn-danger" (click)="deleteObj(objToShow._id)">delete</button>
+
+

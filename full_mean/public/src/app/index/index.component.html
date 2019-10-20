@@ -1,0 +1,32 @@
+<div class="head">
+    <h1 class="display-4 ml-4">Product List</h1>
+    <button class="btn btn-success mt-4 mr-5 float-right" [routerLink]="['/products/new']">Add new product</button>
+</div>
+
+<div class="contain ml-4">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of all" class="all">
+                <td>{{x._id}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.qty}}</td>
+                <td>${{x.price}}</td>
+                <td>
+                    <button class="btn-primary mr-5" [routerLink]="['/products', x._id,'edit']">edit</button>
+                    <button class="btn-primary mr-5" [routerLink]="['/products', x._id]">show</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<router-outlet></router-outlet>
